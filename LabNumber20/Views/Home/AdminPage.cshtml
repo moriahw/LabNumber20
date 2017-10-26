@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "AdminPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AdminPage</h2>
+<br />
+
+<table class="table">
+
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </tr>
+
+    @foreach (var Element in ViewBag.Details)
+    {
+        <tr>
+            <td>@Element.Name</td>
+            <td>@Element.Description</td>
+            <td>@Element.Quantity</td>
+            <td>@Element.Price</td>
+            <td><a href="/Home/DeleteItem?ItemName=@Element.Name" onclick="return confirm('Are you sure?')">Delete</a></td>
+        </tr>
+    }
+
+</table>
+
+<a href=" /Home/NewItem">Add New Item</a><br />
